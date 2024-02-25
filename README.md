@@ -7,6 +7,8 @@ However, as of now, unlike LLMs in NLP, no ProLLM is capable of multiple tasks i
 We introduce **a training framework** to transform any general LLM into a ProLLM capable of **handling multiple PLP tasks**. Specifically, our framework utilizes low-rank adaptation and employs a two-stage training approach, and it is distinguished by its universality, low overhead, and scalability. Through training under this framework, we propose **the ProLLaMA model**, the first known ProLLM to handle multiple PLP tasks simultaneously.
 Experiments show that ProLLaMA achieves state-of-the-art results in the unconditional protein sequence generation task. In the controllable protein sequence generation task, ProLLaMA can **design novel proteins with desired functionalities**. In the protein property prediction task, ProLLaMA achieves nearly 100\% accuracy across many categories. The latter two tasks are beyond the reach of other ProLLMs
 
+![](img/intro_v2.pdf)
+
 ## 1.Install Requirements
 
 ```bash
@@ -67,6 +69,7 @@ python ./src/cli_demo.py \
 or
 [Determine superfamily] Seq=<yyy>
 ```
+See [this](https://github.com/Lyu6PosHao/ProLLaMA/blob/main/superfamilies.txt) on the optional superfamily.
 
 ### Cases
 TBD
