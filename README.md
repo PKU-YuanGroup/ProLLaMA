@@ -9,6 +9,19 @@ Experiments show that ProLLaMA achieves state-of-the-art results in the uncondit
 
 <p align="left"><img src="img/intro.png" title="Pika Framework" height="500"></p>
 
+## Highlights
+
+### A general training framework
+$\bullet$ We propose a training framework with scalability and efficiency that enables any general LLM to be trained as a proficient model for multiple tasks in Protein Language Processing.
+
+### A powerful model
+$\bullet$ Our ProLLaMA is the first model to our knowledge capable of simultaneously handling multiple PLP tasks.
+
+### Excellent performance
+$\bullet$ Experiments show that our ProLLaMA not only handles PLP tasks beyond the reach of existing ProLLMs but also achieves state-of-the-art results in the protein generation task where current ProLLMs are active.
+
+## Pipeline
+
 ## 1.Install Requirements
 
 ```bash
