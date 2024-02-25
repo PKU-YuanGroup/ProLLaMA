@@ -11,10 +11,10 @@ Experiments show that ProLLaMA achieves state-of-the-art results in the uncondit
 
 ## Highlights
 
-### A general training framework
+### General training framework
 $\bullet$ We propose a training framework with scalability and efficiency that enables any general LLM to be trained as a proficient model for multiple tasks in Protein Language Processing.
 
-### A powerful model
+### Powerful model
 $\bullet$ Our ProLLaMA is the first model to our knowledge capable of simultaneously handling multiple PLP tasks.
 
 ### Excellent performance
