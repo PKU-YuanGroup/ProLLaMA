@@ -3,12 +3,11 @@ A Protein Large Language Model for Multi-Task Protein Language Processing
 
 Large Language Models (LLMs), including GPT-x and LLaMA2, have achieved remarkable performance in multiple Natural Language Processing (NLP) tasks. 
 Under the premise that protein sequences constitute the protein language, Protein Large Language Models (ProLLMs) trained on protein corpora excel at de novo protein sequence generation.
-However, as of now, unlike LLMs in NLP, no ProLLM is capable of multiple tasks in the Protein Language Processing (PLP) field.
-This prompts us to delineate the inherent limitations in current ProLLMs: (i) the lack of natural language capabilities, (ii) insufficient instruction understanding, and (iii) high training resource demands.
-To address these challenges, we introduce a training framework to transform any general LLM into a ProLLM capable of handling multiple PLP tasks. Specifically, our framework utilizes low-rank adaptation and employs a two-stage training approach, and it is distinguished by its universality, low overhead, and scalability. Through training under this framework, we propose the ProLLaMA model, the first known ProLLM to handle multiple PLP tasks simultaneously.
-Experiments show that ProLLaMA achieves state-of-the-art results in the unconditional protein sequence generation task. In the controllable protein sequence generation task, ProLLaMA can design novel proteins with desired functionalities. In the protein property prediction task, ProLLaMA achieves nearly 100\% accuracy across many categories. The latter two tasks are beyond the reach of other ProLLMs
+However, as of now, unlike LLMs in NLP, no ProLLM is capable of multiple tasks in the **Protein Language Processing (PLP)** field.
+We introduce **a training framework** to transform any general LLM into a ProLLM capable of **handling multiple PLP tasks**. Specifically, our framework utilizes low-rank adaptation and employs a two-stage training approach, and it is distinguished by its universality, low overhead, and scalability. Through training under this framework, we propose **the ProLLaMA model**, the first known ProLLM to handle multiple PLP tasks simultaneously.
+Experiments show that ProLLaMA achieves state-of-the-art results in the unconditional protein sequence generation task. In the controllable protein sequence generation task, ProLLaMA can **design novel proteins with desired functionalities**. In the protein property prediction task, ProLLaMA achieves nearly 100\% accuracy across many categories. The latter two tasks are beyond the reach of other ProLLMs
 
-## Install Requirements
+## 1.Install Requirements
 
 ```bash
 git clone https://github.com/Lyu6PosHao/ProLLaMA.git
@@ -16,11 +15,13 @@ cd ProLLaMA
 pip install -r requirements.txt
 ```
 
-## Download Model
+## 2.Download Model
 Download from [HuggingFace](https://huggingface.co/GreatCaptainNemo/ProLLaMA)
 
-## Usage
+## 3.Usage
+As ProLLaMA's architecture is the same as LLaMA2, you can use ProLLaMA like using LLaMA2. 
 
+Here are three ways.
 ### Commandline
 
 ```bash
@@ -58,10 +59,17 @@ python ./src/cli_demo.py \
       --template llama2
 ```
 
-## Interactive Demo
+## 4.Demo
 
-Coming soon ...
+### Input Format
+```text
+[Generate by superfamily] Superfamily=<xxx>
+or
+[Determine superfamily] Seq=<yyy>
+```
 
-## Dataset & Model Checkpoints
+### Cases
+TBD
 
-Both will be made available upon official publication of the work
+
+
