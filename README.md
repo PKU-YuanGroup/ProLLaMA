@@ -12,32 +12,36 @@ Experiments show that ProLLaMA achieves state-of-the-art results in the uncondit
 ## Highlights
 
 ### General training framework
-$\bullet$ We propose a training framework with scalability and efficiency that enables any general LLM to be trained as a proficient model for multiple tasks in Protein Language Processing.
+* We propose a training framework with scalability and efficiency that enables any general LLM to be trained as a proficient model for multiple tasks in Protein Language Processing.
 
 ### Powerful model
-$\bullet$ Our ProLLaMA is the first model to our knowledge capable of simultaneously handling multiple PLP tasks.
+* Our ProLLaMA is the first model to our knowledge capable of simultaneously handling multiple PLP tasks.
 
 ### Excellent performance
-$\bullet$ Experiments show that our ProLLaMA not only handles PLP tasks beyond the reach of existing ProLLMs but also achieves state-of-the-art results in the protein generation task where current ProLLMs are active.
+* Experiments show that our ProLLaMA not only handles PLP tasks beyond the reach of existing ProLLMs but also achieves state-of-the-art results in the protein generation task where current ProLLMs are active.
 
 ## Pipeline
 
-## 1.Install Requirements
+## Quick Start
+Follow the steps below to use our model for inference.
+### 1.Install Requirements
 
+* torch==2.0.1
+* transformers==4.35.0
 ```bash
 git clone https://github.com/Lyu6PosHao/ProLLaMA.git
 cd ProLLaMA
 pip install -r requirements.txt
 ```
 
-## 2.Download Model
+### 2.Download Model
 Download from [HuggingFace](https://huggingface.co/GreatCaptainNemo/ProLLaMA)
 
-## 3.Usage
+### 3.Usage
 As ProLLaMA's architecture is the same as LLaMA2, you can use ProLLaMA like using LLaMA2. 
 
 Here are three ways.
-### Commandline
+* Commandline
 
 ```bash
 python main.py --model "GreatCaptainNemo/ProLLaMA" --interactive
@@ -45,7 +49,7 @@ python main.py --model "GreatCaptainNemo/ProLLaMA" --interactive
 #Use "python main.py -h" for more details
 ```
 
-### Python
+* Python
 ```python
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -65,7 +69,7 @@ while True:
     print("Output:", response)
 ```
 
-### LLaMA-Factory
+* LLaMA-Factory
 ```bash
 git clone https://github.com/hiyouga/LLaMA-Factory.git
 cd LLaMA-Factory
@@ -74,18 +78,13 @@ python ./src/cli_demo.py \
       --template llama2
 ```
 
-## 4.Demo
-
-### Input Format
+### 4.Input Format
 ```text
 [Generate by superfamily] Superfamily=<xxx>
 or
 [Determine superfamily] Seq=<yyy>
 ```
-See [this](https://github.com/Lyu6PosHao/ProLLaMA/blob/main/superfamilies.txt) on the optional superfamily.
-
-### Cases
-TBD
+See [this](https://github.com/Lyu6PosHao/ProLLaMA/blob/main/superfamilies.txt) on all the optional superfamilies.
 
 
 
