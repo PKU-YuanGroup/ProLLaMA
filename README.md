@@ -28,6 +28,20 @@ Experiments show that ProLLaMA achieves state-of-the-art results in the uncondit
 ### Excellent performance
 * Experiments show that our ProLLaMA not only handles PLP tasks beyond the reach of existing ProLLMs but also achieves state-of-the-art results in the protein generation task where current ProLLMs are active.
 
+## Main Results
+
+* Protein sequence generation
+  
+  <p align="left"><img src="img/r1.png" title="" height="500"></p>
+  
+* Controllable protein sequence generation (controlled by the given superfamily descriptions)
+  
+  <p align="left"><img src="img/r2.png" title="" height="500"></p>
+  
+* Protein property prediction
+  
+  <p align="left"><img src="img/r3.png" title="" height="500"></p>
+
 ## Pipeline
 * (A) Continual learning on protein language.
 * (B) Instruction tuning on multi-tasks.
