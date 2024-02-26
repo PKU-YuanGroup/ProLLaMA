@@ -1,5 +1,13 @@
-# ProLLaMA
-A Protein Large Language Model for Multi-Task Protein Language Processing
+
+<h2 align="center"> <a href="https://arxiv.org/pdf/TBD.pdf">ProLLaMA: A Protein Large Language Model for Multi-Task Protein Language Processing</a></h2>
+<h5 align="center">
+    
+[![arXiv](https://img.shields.io/badge/Arxiv-TBD-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/tbd)
+[![Model](https://img.shields.io/badge/🤗-Model-blue.svg)](https://huggingface.co/GreatCaptainNemo/ProLLaMA)
+[![License](https://img.shields.io/badge/License-Apache%202.0-yellow)](https://github.com/Lyu6PosHao/ProLLaMA/blob/main/LICENSE) <br>
+
+</h5>
+
 
 Large Language Models (LLMs), including GPT-x and LLaMA2, have achieved remarkable performance in multiple Natural Language Processing (NLP) tasks. 
 Under the premise that protein sequences constitute the protein language, Protein Large Language Models (ProLLMs) trained on protein corpora excel at de novo protein sequence generation.
@@ -7,7 +15,7 @@ However, as of now, unlike LLMs in NLP, no ProLLM is capable of multiple tasks i
 We introduce **a training framework** to transform any general LLM into a ProLLM capable of **handling multiple PLP tasks**. Specifically, our framework utilizes low-rank adaptation and employs a two-stage training approach, and it is distinguished by its universality, low overhead, and scalability. Through training under this framework, we propose **the ProLLaMA model**, the first known ProLLM to handle multiple PLP tasks simultaneously.
 Experiments show that ProLLaMA achieves state-of-the-art results in the unconditional protein sequence generation task. In the controllable protein sequence generation task, ProLLaMA can **design novel proteins with desired functionalities**. In the protein property prediction task, ProLLaMA achieves nearly 100\% accuracy across many categories. The latter two tasks are beyond the reach of other ProLLMs
 
-<p align="left"><img src="img/intro.png" title="Pika Framework" height="500"></p>
+<p align="left"><img src="img/intro.png" title="" height="500"></p>
 
 ## Highlights
 
@@ -21,8 +29,12 @@ Experiments show that ProLLaMA achieves state-of-the-art results in the uncondit
 * Experiments show that our ProLLaMA not only handles PLP tasks beyond the reach of existing ProLLMs but also achieves state-of-the-art results in the protein generation task where current ProLLMs are active.
 
 ## Pipeline
+* (A) Continual learning on protein language.
+* (B) Instruction tuning on multi-tasks.
+* (C) Expanding to more tasks by instruction tuning in the future.
+<p align="left"><img src="img/train_framework_v3.png" title=""></p>
 
-## Quick Start
+## Quick Inference
 Follow the steps below to use our model for inference.
 ### 1.Install Requirements
 
@@ -38,7 +50,8 @@ pip install -r requirements.txt
 Download from [HuggingFace](https://huggingface.co/GreatCaptainNemo/ProLLaMA)
 
 ### 3.Usage
-As ProLLaMA's architecture is the same as LLaMA2, you can use ProLLaMA like using LLaMA2. 
+
+**As ProLLaMA's architecture is the same as LLaMA2, you can use ProLLaMA like using LLaMA2.**
 
 Here are three ways.
 * Commandline
