@@ -15,7 +15,7 @@ However, as of now, unlike LLMs in NLP, no ProLLM is capable of multiple tasks i
 We introduce **a training framework** to transform any general LLM into a ProLLM capable of **handling multiple PLP tasks**. Specifically, our framework utilizes low-rank adaptation and employs a two-stage training approach, and it is distinguished by its universality, low overhead, and scalability. Through training under this framework, we propose **the ProLLaMA model**, the first known ProLLM to handle multiple PLP tasks simultaneously.
 Experiments show that ProLLaMA achieves state-of-the-art results in the unconditional protein sequence generation task. In the controllable protein sequence generation task, ProLLaMA can **design novel proteins with desired functionalities**. In the protein property prediction task, ProLLaMA achieves nearly 100\% accuracy across many categories. The latter two tasks are beyond the reach of other ProLLMs
 
-<p align="left"><img src="img/intro.png" title="" height="500"></p>
+<p align="center"><img src="img/intro.png" title="" height="500"></p>
 
 ## Highlights
 
@@ -29,30 +29,25 @@ Experiments show that ProLLaMA achieves state-of-the-art results in the uncondit
 * Experiments show that our ProLLaMA not only handles PLP tasks beyond the reach of existing ProLLMs but also achieves state-of-the-art results in the protein generation task where current ProLLMs are active.
 
 ## Main Results
-
-* Visualization
-
-  <p align="left"><img src="img/r5.jpg" title=""></p>
-  
-  <p align="left"><img src="img/r6.jpg" title=""></p>
-
 * Protein sequence generation
-  
-  <p align="left"><img src="img/r1.jpg" title=""></p>
+  <p align="center"><img src="img/r4.jpg" title=""></p>
+  <p align="center"><img src="img/r1.jpg" title=""></p>
   
 * Controllable protein sequence generation (controlled by the given superfamily descriptions)
-  
-  <p align="left"><img src="img/r2.jpg" title="" ></p>
+
+  ProLLaMA is capable of generating desired proteins (Blue) with functions and structures similar to natural proteins (Yellow).
+  <p align="center"><img src="img/r5.jpg" title=""></p>
+  <p align="center"><img src="img/r2.jpg" title=""></p>
   
 * Protein property prediction
   
-  <p align="left"><img src="img/r3.jpg" title="" ></p>
+  <p align="center"><img src="img/r3.jpg" title="" ></p>
 
 ## Pipeline
 * (A) Continual learning on protein language.
 * (B) Instruction tuning on multi-tasks.
 * (C) Expanding to more tasks by instruction tuning in the future.
-<p align="left"><img src="img/train_framework_v3.png" title=""></p>
+<p align="center"><img src="img/train_framework_v3.png" title=""></p>
 
 ## Quick Inference
 Follow the steps below to use our model for inference.
