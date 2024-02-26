@@ -32,15 +32,15 @@ Experiments show that ProLLaMA achieves state-of-the-art results in the uncondit
 
 * Protein sequence generation
   
-  <p align="left"><img src="img/r1.png" title="" height="500"></p>
+  <p align="left"><img src="img/r1.jpg" title=""></p>
   
 * Controllable protein sequence generation (controlled by the given superfamily descriptions)
   
-  <p align="left"><img src="img/r2.png" title="" height="500"></p>
+  <p align="left"><img src="img/r2.jpg" title="" ></p>
   
 * Protein property prediction
   
-  <p align="left"><img src="img/r3.png" title="" height="500"></p>
+  <p align="left"><img src="img/r3.jpg" title="" ></p>
 
 ## Pipeline
 * (A) Continual learning on protein language.
