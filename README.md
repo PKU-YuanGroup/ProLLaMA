@@ -33,7 +33,7 @@ Experiments show that ProLLaMA achieves state-of-the-art results in the uncondit
   <p align="center"><img src="img/r4.jpg" title=""></p>
   <p align="center"><img src="img/r1.jpg" title=""></p>
   
-* Controllable protein sequence generation (controlled by the given superfamily descriptions)
+* Controllable protein sequence generation (controlled by the given [superfamily descriptions](https://github.com/Lyu6PosHao/ProLLaMA/blob/main/superfamilies.txt))
 
   ProLLaMA is capable of generating desired proteins (Blue) with functions and structures similar to natural proteins (Yellow).
   <p align="center"><img src="img/r5.jpg" title=""></p>
