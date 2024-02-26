@@ -30,6 +30,11 @@ Experiments show that ProLLaMA achieves state-of-the-art results in the uncondit
 
 ## Main Results
 
+* Visualization
+
+  <p align="left"><img src="img/r5.jpg" title=""></p>
+  <p align="left"><img src="img/r4.jpg" title=""></p>
+
 * Protein sequence generation
   
   <p align="left"><img src="img/r1.jpg" title=""></p>
