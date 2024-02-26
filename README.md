@@ -114,5 +114,9 @@ or
 ```
 See [this](https://github.com/Lyu6PosHao/ProLLaMA/blob/main/superfamilies.txt) on all the optional superfamilies.
 
+## Qucik Train
+(To Be Done) Quick usage of our training framework.
 
+## Others
+(To Be Done) The model of the first stage will also be available on HuggingFace soon.
 
