@@ -55,6 +55,7 @@ Follow the steps below to use our model for inference.
 
 * torch==2.0.1
 * transformers==4.35.0
+* cuda==11.7
 ```bash
 git clone https://github.com/Lyu6PosHao/ProLLaMA.git
 cd ProLLaMA
