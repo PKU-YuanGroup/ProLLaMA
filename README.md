@@ -1,8 +1,8 @@
 
-<h2 align="center"> <a href="https://arxiv.org/pdf/TBD.pdf">ProLLaMA: A Protein Large Language Model for Multi-Task Protein Language Processing</a></h2>
+<h2 align="center"> <a href="hhttps://arxiv.org/abs/2402.16445">ProLLaMA: A Protein Large Language Model for Multi-Task Protein Language Processing</a></h2>
 <h5 align="center">
     
-[![arXiv](https://img.shields.io/badge/Arxiv-TBD-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/tbd)
+[![arXiv](https://img.shields.io/badge/Arxiv-2402.16445-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2402.16445)
 [![Model](https://img.shields.io/badge/🤗-Model-blue.svg)](https://huggingface.co/GreatCaptainNemo/ProLLaMA)
 [![License](https://img.shields.io/badge/License-Apache%202.0-yellow)](https://github.com/Lyu6PosHao/ProLLaMA/blob/main/LICENSE) <br>
 
