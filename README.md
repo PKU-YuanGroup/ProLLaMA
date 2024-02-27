@@ -3,8 +3,8 @@
 <h5 align="center">
     
 [![arXiv](https://img.shields.io/badge/Arxiv-2402.16445-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2402.16445)
-[![Model](https://img.shields.io/badge/🤗-Model-blue.svg)](https://huggingface.co/GreatCaptainNemo/ProLLaMA)
-[![License](https://img.shields.io/badge/License-Apache%202.0-yellow)](https://github.com/Lyu6PosHao/ProLLaMA/blob/main/LICENSE) <br>
+[![Model](https://img.shields.io/badge/🤗-Model_Download-blue.svg)](https://huggingface.co/GreatCaptainNemo/ProLLaMA)
+<!-- [![License](https://img.shields.io/badge/License-Apache%202.0-yellow)](https://github.com/Lyu6PosHao/ProLLaMA/blob/main/LICENSE) --> <br>
 
 </h5>
 
@@ -17,7 +17,7 @@ Experiments show that ProLLaMA achieves state-of-the-art results in the uncondit
 
 <p align="center"><img src="img/intro.png" title="" height="500"></p>
 
-## Highlights
+## 💡Highlights
 
 ### General training framework
 * We propose a training framework with scalability and efficiency that enables any general LLM to be trained as a proficient model for multiple tasks in Protein Language Processing.
@@ -28,7 +28,7 @@ Experiments show that ProLLaMA achieves state-of-the-art results in the uncondit
 ### Excellent performance
 * Experiments show that our ProLLaMA not only handles PLP tasks beyond the reach of existing ProLLMs but also achieves state-of-the-art results in the protein generation task where current ProLLMs are active.
 
-## Main Results
+## 😮Main Results
 * Protein sequence generation
   <p align="center"><img src="img/r4.jpg" title=""></p>
   <p align="center"><img src="img/r1.jpg" title=""></p>
@@ -43,13 +43,13 @@ Experiments show that ProLLaMA achieves state-of-the-art results in the uncondit
   
   <p align="center"><img src="img/r3.jpg" title="" ></p>
 
-## Pipeline
+## 🚀Pipeline
 * (A) Continual learning on protein language.
 * (B) Instruction tuning on multi-tasks.
 * (C) Expanding to more tasks by instruction tuning in the future.
 <p align="center"><img src="img/train_framework_v3.png" title=""></p>
 
-## Quick Inference
+## 🛠️Quick Inference
 Follow the steps below to use our model for inference.
 ### 1.Install Requirements
 
@@ -114,9 +114,20 @@ or
 ```
 See [this](https://github.com/Lyu6PosHao/ProLLaMA/blob/main/superfamilies.txt) on all the optional superfamilies.
 
-## Qucik Train
+## 🛠️Qucik Train
 (To Be Done) Quick usage of our training framework.
 
-## Others
+## ✒️Others
 (To Be Done) The model of the first stage will also be available on HuggingFace soon.
 
+## ✏️Citation
+```BibTex
+@misc{lv2024prollama,
+      title={ProLLaMA: A Protein Large Language Model for Multi-Task Protein Language Processing}, 
+      author={Liuzhenghao Lv and Zongying Lin and Hao Li and Yuyang Liu and Jiaxi Cui and Calvin Yu-Chian Chen and Li Yuan and Yonghong Tian},
+      year={2024},
+      eprint={2402.16445},
+      archivePrefix={arXiv},
+      primaryClass={cs.CE}
+}
+```
