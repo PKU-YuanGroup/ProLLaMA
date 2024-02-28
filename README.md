@@ -17,6 +17,17 @@ Experiments show that ProLLaMA achieves state-of-the-art results in the uncondit
 
 <p align="center"><img src="img/intro.png" title="" height="500"></p>
 
+<details open><summary> I also have other AI for Science projects that may interest you ✨. </summary><p>
+<!--  may -->
+
+> [**TaxDiff: Taxonomic-Guided Diffusion Model for Protein Sequence Generation**](https://github.com/PKU-YuanGroup/TaxDiff) <br>
+>Zongying Lin, Li Hao, Liuzhenghao Lv, Bin Lin, Junwu Zhang, Calvin Yu-Chian Chen, Li Yuan, Yonghong Tian<br>
+[![github](https://img.shields.io/badge/-Github-black?logo=github)](https://github.com/PKU-YuanGroup/TaxDiff)  
+[![arXiv](https://img.shields.io/badge/Arxiv-2401.15947-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2402.17156) <br>
+
+
+</p ></details>
+
 ## 💡Highlights
 
 ### General training framework
