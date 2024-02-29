@@ -5,7 +5,6 @@ from transformers import LlamaForCausalLM, LlamaTokenizer
 from transformers import GenerationConfig
 from tqdm import tqdm
 
-
 generation_config = GenerationConfig(
     temperature=0.2,
     top_k=40,
@@ -21,18 +20,19 @@ parser.add_argument('--model', default=None, type=str,help="The local path of th
 parser.add_argument('--interactive', action='store_true',help="If True, you can input instructions interactively. If False, the input instructions should be in the input_file.")
 parser.add_argument('--input_file', default=None, help="You can put all your input instructions in this file (one instruction per line).")
 parser.add_argument('--output_file', default=None, help="All the outputs will be saved in this file.")
-parser.add_argument('--gpus', default="0", type=str)
 args = parser.parse_args()
 
 if __name__ == '__main__':
     if args.interactive and args.input_file:
-        raise ValueError("interactive and input_file cannot be True at the same time.")
-    if not args.interactive and not args.input_file:
-        raise ValueError("interactive and input_file cannot be False at the same time.")
+        raise ValueError("interactive is True, but input_file is not None.")
+    if (not args.interactive) and (args.input_file is None):
+        raise ValueError("interactive is False, but input_file is None.")
+    if args.input_file and (args.output_file is None):
+        raise ValueError("input_file is not None, but output_file is None.")
 
     load_type = torch.bfloat16
     if torch.cuda.is_available():
-        device = torch.device(args.gpus)
+        device = torch.device(0)
     else:
         raise ValueError("No GPU available.")
 
@@ -44,10 +44,11 @@ if __name__ == '__main__':
         device_map='auto',
         quantization_config=None
     )
+    tokenizer = LlamaTokenizer.from_pretrained(args.model)
 
     model.eval()
     with torch.no_grad():
-        if interactive:
+        if args.interactive:
             while True:
                 raw_input_text = input("Input:")
                 if len(raw_input_text.strip())==0:
