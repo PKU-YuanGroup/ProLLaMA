@@ -84,8 +84,9 @@ Here are three ways.
 * Commandline
 
 ```bash
-python main.py --model "GreatCaptainNemo/ProLLaMA" --interactive
+CUDA_VISIBLE_DEVICES=0 python main.py --model "GreatCaptainNemo/ProLLaMA" --interactive
 #You can replace the model_path with your local path
+#Make sure you use only one GPU for inference
 #Use "python main.py -h" for more details
 ```
 
@@ -109,7 +110,7 @@ while True:
     print("Output:", response)
 ```
 
-* LLaMA-Factory
+* [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory)
 ```bash
 git clone https://github.com/hiyouga/LLaMA-Factory.git
 cd LLaMA-Factory
@@ -124,7 +125,18 @@ python ./src/cli_demo.py \
 or
 [Determine superfamily] Seq=<yyy>
 ```
-See [this](https://github.com/Lyu6PosHao/ProLLaMA/blob/main/superfamilies.txt) on all the optional superfamilies.
+Here are some examples of the input:
+```text
+[Generate by superfamily] Superfamily=<Ankyrin repeat-containing domain superfamily>
+```
+```
+#You can also specify the first few amino acids of the protein sequence:
+[Generate by superfamily] Superfamily=<Ankyrin repeat-containing domain superfamily> Seq=<MKRVL
+```
+```
+[Determine superfamily] Seq=<MAPGGMPREFPSFVRTLPEADLGYPALRGWVLQGERGCVLYWEAVTEVALPEHCHAECWGVVVDGRMELMVDGYTRVYTRGDLYVVPPQARHRARVFPGFRGVEHLSDPDLLPVRKR>
+```
+**See [this](https://github.com/Lyu6PosHao/ProLLaMA/blob/main/superfamilies.txt) on all the optional superfamilies.**
 
 ## 🛠️Qucik Train
 (To Be Done) Quick usage of our training framework.
