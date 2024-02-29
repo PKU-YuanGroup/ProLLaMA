@@ -61,7 +61,9 @@ Experiments show that ProLLaMA achieves state-of-the-art results in the uncondit
 <p align="center"><img src="img/train_framework_v3.png" title=""></p>
 
 ## 🛠️Quick Inference
-Follow the steps below to use our model for inference.
+**As ProLLaMA's architecture is the same as LLaMA2, you can use ProLLaMA like using LLaMA2.**
+
+Follow the steps below to use our ProLLaMA for inference.
 ### 1.Install Requirements
 
 * torch==2.0.1
@@ -78,9 +80,8 @@ Download from [HuggingFace](https://huggingface.co/GreatCaptainNemo/ProLLaMA)
 
 ### 3.Usage
 
-**As ProLLaMA's architecture is the same as LLaMA2, you can use ProLLaMA like using LLaMA2.**
+**Just like using LLaMA2, three ways are provided here:**
 
-Here are three ways.
 * Commandline
 
 ```bash
