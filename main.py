@@ -18,7 +18,7 @@ generation_config = GenerationConfig(
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--model', default=None, type=str,help="The local path of the model. If None, the model will be downloaded from HuggingFace")
-parser.add_argument('--interactive', action='store_ture',help="If True, you can input instructions interactively. If False, the input instructions should be in the input_file.")
+parser.add_argument('--interactive', action='store_true',help="If True, you can input instructions interactively. If False, the input instructions should be in the input_file.")
 parser.add_argument('--input_file', default=None, help="You can put all your input instructions in this file (one instruction per line).")
 parser.add_argument('--output_file', default=None, help="All the outputs will be saved in this file.")
 parser.add_argument('--gpus', default="0", type=str)
