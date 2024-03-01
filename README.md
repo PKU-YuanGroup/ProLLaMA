@@ -55,13 +55,14 @@ Experiments show that ProLLaMA achieves state-of-the-art results in the uncondit
   <p align="center"><img src="img/r3.jpg" title="" ></p>
 
 ## 🚀Pipeline
+The training framework we propose is as follows:
 * (A) Continual learning on protein language.
 * (B) Instruction tuning on multi-tasks.
 * (C) Expanding to more tasks by instruction tuning in the future.
 <p align="center"><img src="img/train_framework_v3.png" title=""></p>
 
 ## 🛠️Quick Inference
-**As ProLLaMA's architecture is the same as LLaMA2, you can use ProLLaMA like using LLaMA2.**
+**As ProLLaMA's architecture is the same as LLaMA2, you can use ProLLaMA for inference like using LLaMA2.**
 
 Follow the steps below to use our ProLLaMA for inference.
 ### 1.Install Requirements
