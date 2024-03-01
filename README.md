@@ -29,12 +29,12 @@ Experiments show that ProLLaMA achieves state-of-the-art results in the uncondit
 </p ></details>
 
 ## 💡Highlights
+### Powerful model
+* Our ProLLaMA is the first model to our knowledge capable of simultaneously handling multiple PLP tasks.
+* **including generating proteins with specified functions based on the user's intent.**
 
 ### General training framework
 * We propose a training framework with scalability and efficiency that enables any general LLM to be trained as a proficient model for multiple tasks in Protein Language Processing.
-
-### Powerful model
-* Our ProLLaMA is the first model to our knowledge capable of simultaneously handling multiple PLP tasks.
 
 ### Excellent performance
 * Experiments show that our ProLLaMA not only handles PLP tasks beyond the reach of existing ProLLMs but also achieves state-of-the-art results in the protein generation task where current ProLLMs are active.
@@ -121,6 +121,7 @@ python ./src/cli_demo.py \
 ```
 
 ### 4.Input Format
+The instructions which you input to the model should follow the following format:
 ```text
 [Generate by superfamily] Superfamily=<xxx>
 or
