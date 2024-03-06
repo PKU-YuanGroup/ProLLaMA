@@ -152,12 +152,10 @@ Here are some examples of the input:
 
 ## ✏️Citation
 ```BibTex
-@misc{lv2024prollama,
-      title={ProLLaMA: A Protein Large Language Model for Multi-Task Protein Language Processing}, 
-      author={Liuzhenghao Lv and Zongying Lin and Hao Li and Yuyang Liu and Jiaxi Cui and Calvin Yu-Chian Chen and Li Yuan and Yonghong Tian},
-      year={2024},
-      eprint={2402.16445},
-      archivePrefix={arXiv},
-      primaryClass={cs.CE}
+@article{lv2024prollama,
+  title={ProLLaMA: A Protein Large Language Model for Multi-Task Protein Language Processing},
+  author={Lv, Liuzhenghao and Lin, Zongying and Li, Hao and Liu, Yuyang and Cui, Jiaxi and Chen, Calvin Yu-Chian and Yuan, Li and Tian, Yonghong},
+  journal={arXiv preprint arXiv:2402.16445},
+  year={2024}
 }
 ```
