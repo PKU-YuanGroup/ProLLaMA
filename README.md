@@ -80,7 +80,7 @@ pip install -r requirements.txt
 ```
 
 ### 2.Download Model
-Download from [Hugging Face](https://huggingface.co/GreatCaptainNemo/ProLLaMA)
+Download from [HuggingFace](https://huggingface.co/GreatCaptainNemo/ProLLaMA)
 
 ### 3.Usage
 
@@ -148,7 +148,7 @@ Here are some examples of the input:
 (To Be Done) Quick usage of our training framework.
 
 ## ✒️Others
-(To Be Done) The model of the first stage will also be available on Hugging Face soon.
+(To Be Done) The model of the first stage will also be available on HuggingFace soon.
 
 ## ✏️Citation
 ```BibTex
