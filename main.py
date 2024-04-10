@@ -29,7 +29,9 @@ if __name__ == '__main__':
         raise ValueError("interactive is False, but input_file is None.")
     if args.input_file and (args.output_file is None):
         raise ValueError("input_file is not None, but output_file is None.")
-
+    if args.model is None:
+            args.model='GreatCaptainNemo/ProLLaMA'
+        
     load_type = torch.bfloat16
     if torch.cuda.is_available():
         device = torch.device(0)
@@ -74,7 +76,7 @@ if __name__ == '__main__':
                 examples =f.read().splitlines()
             print("Start generating...")
             for index, example in tqdm(enumerate(examples),total=len(examples)):
-                input_text = tokenizer(example,return_tensors="pt")  #add_special_tokens=False ?
+                input_text = tokenizer(example,return_tensors="pt") 
 
                 generation_output = model.generate(
                     input_ids = input_text["input_ids"].to(device),
