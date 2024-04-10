@@ -9,7 +9,8 @@
 </h5>
 
 ## 📣 News
-* **[2.29]** Update the main.py to fix bugs.
+* [2.29] Update the main.py to fix bugs.
+* [4.10] Add a script (in /scripts/mutation.py) to meature mutation effects.
 
 ## 🗝️ Abstract
 Large Language Models (LLMs), including GPT-x and LLaMA2, have achieved remarkable performance in multiple Natural Language Processing (NLP) tasks. 
