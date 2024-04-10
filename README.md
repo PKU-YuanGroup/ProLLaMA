@@ -20,7 +20,7 @@ Experiments show that ProLLaMA achieves state-of-the-art results in the uncondit
 
 <p align="center"><img src="img/intro.png" title="" height="500"></p>
 
-<details open><summary> I also have other AI for Science projects that may interest you ✨. </summary><p>
+<details open><summary> I also have other AI for Science projects that may interest you. </summary><p>
 <!--  may -->
 
 > [**TaxDiff: Taxonomic-Guided Diffusion Model for Protein Sequence Generation**](https://github.com/PKU-YuanGroup/TaxDiff) <br>
@@ -98,21 +98,25 @@ CUDA_VISIBLE_DEVICES=0 python main.py --model "GreatCaptainNemo/ProLLaMA" --inte
 * Python
 ```python
 import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
-from transformers.generation.utils import GenerationConfig
+from transformers import AutoModelForCausalLM, AutoTokenizer,GenerationConfig
+from tqdm import tqdm
 ##You can replace the model_path with your local path
-tokenizer = AutoTokenizer.from_pretrained("GreatCaptainNemo/ProLLaMA", use_fast=False, trust_remote_code=True)
-model = AutoModelForCausalLM.from_pretrained("GreatCaptainNemo/ProLLaMA", device_map="auto", torch_dtype=torch.bfloat16, trust_remote_code=True)
-model.generation_config = GenerationConfig.from_pretrained("GreatCaptainNemo/ProLLaMA")
+device=torch.device('cuda:0')
+tokenizer = AutoTokenizer.from_pretrained("/remote-home/share/llzh/project_prollama/sft_protein/SF/saved_models/", use_fast=False, trust_remote_code=True)
+model = AutoModelForCausalLM.from_pretrained("/remote-home/share/llzh/project_prollama/sft_protein/SF/saved_models/", device_map="auto", torch_dtype=torch.bfloat16, trust_remote_code=True)
+generation_config = GenerationConfig(temperature=0.2,top_k=40, top_p=0.9,do_sample=True,num_beams=1,repetition_penalty=1.2,max_new_tokens=400)
+model.eval()
 print("####Enter 'exit' to exit.")
-while True:
-    messages = []
-    user=str(input("Input:"))
-    if user.strip()=="exit":
-        break
-    messages.append({"role": "user", "content": user})
-    response = model.chat(tokenizer, messages)
-    print("Output:", response)
+with torch.no_grad():
+    while True:
+        messages = []
+        user=str(input("Input:"))
+        if user.strip()=="exit":
+            break
+        inputs = tokenizer(user, return_tensors="pt").to(device)
+        generate_ids = model.generate(inputs.input_ids,generation_config).to(device)
+        response=tokenizer.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
+        print("Output:", response)
 ```
 
 * [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory)
