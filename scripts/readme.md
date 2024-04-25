@@ -18,4 +18,4 @@ Seq=<MAPGGMPREFPSFVRTLPEADLGYPALRGWVLQGERGCVLYWEAVTEVALPEHCHAECWGVVVDGRMELMVDGYT
 [Generate by superfamily] Superfamily=<RmlC-like cupin domain superfamily> Seq=<MAPGGMPREFPSFVRTLPEADLGYPALRGWVLQGERGCVLYWEAVTEVALPEHCHAECWGVVVDGRMELMVDGYTRVYTRGDLYVVPPQARHRARVFPGFRGVEHLSDPDLLPVRKR>
 ```
 
-- Maybe the score can be normalized according to the length.
+- Maybe the score can be normalized by the length of the sequence.
