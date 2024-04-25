@@ -155,7 +155,26 @@ Here are some examples of the input:
 (To Be Done) Quick usage of our training framework.
 
 ## ✒️Others
-(To Be Done) The model of the first stage will also be available on Hugging Face soon.
+### ProLLaMA of Stage 1
+
+ProLLaMA_Stage_1 refers to the model obtained by continual pre-training LLaMA2 on the UniRef50 dataset, as shown in the [pipeline](https://github.com/PKU-YuanGroup/ProLLaMA?tab=readme-ov-file#pipeline).
+
+You can use ProLLaMA_Stage_1 in the same way as ProLLaMA. For example:
+```bash
+CUDA_VISIBLE_DEVICES=0 python main.py --model "GreatCaptainNemo/ProLLaMA_Stage_1" --interactive
+#You can replace the model_path with your local path
+#Make sure you use only one GPU for inference
+#Use "python main.py -h" for more details
+```
+
+However, ProLLaMA_Stage_1's input format is a little different from ProLLaMA, since the former is only trained on pure protein sequences without nautral language instructions.
+
+The input format:
+```text
+Seq=
+#You can also specify the first few amino acids of the protein sequence:
+Seq=<MAPGGMPRE
+```
 
 ## ✏️Citation
 ```BibTex
