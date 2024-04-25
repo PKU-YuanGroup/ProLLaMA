@@ -11,6 +11,7 @@
 ## 📣 News
 * [2.29] Update the main.py to fix bugs.
 * [4.10] Add a script (in /scripts/mutation.py) to meature mutation effects.
+* [4.25] Upload ProLLaMA_Stage_1 to [HuggingFace](https://huggingface.co/GreatCaptainNemo/ProLLaMA_Stage_1). More information is [here](https://github.com/PKU-YuanGroup/ProLLaMA?tab=readme-ov-file#%EF%B8%8Fothers).
 
 ## 🗝️ Abstract
 Large Language Models (LLMs), including GPT-x and LLaMA2, have achieved remarkable performance in multiple Natural Language Processing (NLP) tasks. 
@@ -175,7 +176,9 @@ Seq=
 #You can also specify the first few amino acids of the protein sequence:
 Seq=<MAPGGMPRE
 ```
+You can perform instruction tuning on ProLLaMA_Stage_1 (or ProLLaMA) with your custom datasets, in order to make the model capable of your insterested PLP tasks.
 
+We plan to build a more powerful ProLLaMA_Stage_1.
 ## ✏️Citation
 ```BibTex
 @article{lv2024prollama,
