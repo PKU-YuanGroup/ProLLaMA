@@ -158,7 +158,7 @@ Here are some examples of the input:
 ## ✒️Others
 ### ProLLaMA of Stage 1
 
-ProLLaMA_Stage_1 refers to the model obtained by continual pre-training LLaMA2 on the UniRef50 dataset, as shown in the [pipeline](https://github.com/PKU-YuanGroup/ProLLaMA?tab=readme-ov-file#pipeline).
+ProLLaMA_Stage_1 refers to the model obtained by continual pre-training LLaMA2 on the UniRef50 dataset, as shown in the [pipeline](https://github.com/PKU-YuanGroup/ProLLaMA?tab=readme-ov-file#pipeline). [HuggingFace Link](https://huggingface.co/GreatCaptainNemo/ProLLaMA_Stage_1)
 
 You can use ProLLaMA_Stage_1 in the same way as ProLLaMA. For example:
 ```bash
