@@ -9,9 +9,10 @@
 </h5>
 
 ## 📣 News
-* [2.29] Update the main.py to fix bugs.
-* [4.10] Add a script (in /scripts/mutation.py) to meature mutation effects.
-* [4.25] Upload ProLLaMA_Stage_1 to [HuggingFace](https://huggingface.co/GreatCaptainNemo/ProLLaMA_Stage_1). More information is [here](https://github.com/PKU-YuanGroup/ProLLaMA?tab=readme-ov-file#%EF%B8%8Fothers).
+* [02.29] Update the main.py to fix bugs.
+* [04.10] Add a script (in /scripts/mutation.py) to meature mutation effects.
+* [04.25] Upload ProLLaMA_Stage_1 to [HuggingFace](https://huggingface.co/GreatCaptainNemo/ProLLaMA_Stage_1). More information is [here](https://github.com/PKU-YuanGroup/ProLLaMA?tab=readme-ov-file#%EF%B8%8Fothers).
+* **[06.08] Opensource the instruction dataset on [HuggingFace](https://huggingface.co/datasets/GreatCaptainNemo/instruction_dataset)**
 
 ## 🗝️ Abstract
 Large Language Models (LLMs), including GPT-x and LLaMA2, have achieved remarkable performance in multiple Natural Language Processing (NLP) tasks. 
