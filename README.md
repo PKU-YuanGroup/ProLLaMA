@@ -3,7 +3,9 @@
 <h5 align="center">
     
 [![arXiv](https://img.shields.io/badge/Arxiv-2402.16445-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2402.16445)
-[![Model](https://img.shields.io/badge/🤗-Model_Download-blue.svg)](https://huggingface.co/GreatCaptainNemo/ProLLaMA)
+[![Model1](https://img.shields.io/badge/🤗-Model1_Download-blue.svg)](https://huggingface.co/GreatCaptainNemo/ProLLaMA_Stage_1)
+[![Model2](https://img.shields.io/badge/🤗-Model2_Download-blue.svg)](https://huggingface.co/GreatCaptainNemo/ProLLaMA)
+[![Dataset](https://img.shields.io/badge/🤗-Dataset_Download-blue.svg)](https://huggingface.co/datasets/GreatCaptainNemo/instruction_dataset)
 <!-- [![License](https://img.shields.io/badge/License-Apache%202.0-yellow)](https://github.com/Lyu6PosHao/ProLLaMA/blob/main/LICENSE) --> <br>
 
 </h5>
