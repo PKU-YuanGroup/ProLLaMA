@@ -1,3 +1,4 @@
+## About Mutation
 **mutation.py** is used to measure mutation effects. Note that this script is exemplary only and does not guarantee academic rigor. You may need to modify it.
 
 We calculate neg_log_likelihood (nll in short) of wild_type and mutated_type respectively. And then we calculated the fitness score according to [1].

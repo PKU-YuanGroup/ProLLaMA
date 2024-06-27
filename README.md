@@ -11,10 +11,14 @@
 </h5>
 
 ## 📣 News
-* [02.29] Update the main.py to fix bugs.
-* [04.10] Add a script (in /scripts/mutation.py) to meature mutation effects.
+* [06.27] Release the codes for pretraining (Stage1) and instruction_tuning (Stage2). See [here](https://github.com/PKU-YuanGroup/ProLLaMA?tab=readme-ov-file#%EF%B8%8Fqucik-train).
+* [06.08] Opensource the instruction dataset on [HuggingFace](https://huggingface.co/datasets/GreatCaptainNemo/instruction_dataset)
 * [04.25] Upload ProLLaMA_Stage_1 to [HuggingFace](https://huggingface.co/GreatCaptainNemo/ProLLaMA_Stage_1). More information is [here](https://github.com/PKU-YuanGroup/ProLLaMA?tab=readme-ov-file#%EF%B8%8Fothers).
-* **[06.08] Opensource the instruction dataset on [HuggingFace](https://huggingface.co/datasets/GreatCaptainNemo/instruction_dataset)**
+* [04.10] Add a script (in /scripts/mutation.py) to meature mutation effects.
+* [02.29] Update the /scripts/infer.py to fix bugs.
+
+
+
 
 ## 🗝️ Abstract
 Large Language Models (LLMs), including GPT-x and LLaMA2, have achieved remarkable performance in multiple Natural Language Processing (NLP) tasks. 
@@ -95,10 +99,10 @@ Download from [Hugging Face](https://huggingface.co/GreatCaptainNemo/ProLLaMA)
 * Commandline
 
 ```bash
-CUDA_VISIBLE_DEVICES=0 python main.py --model "GreatCaptainNemo/ProLLaMA" --interactive
+CUDA_VISIBLE_DEVICES=0 python ./scripts/infer.py --model "GreatCaptainNemo/ProLLaMA" --interactive
 #You can replace the model_path with your local path
 #Make sure you use only one GPU for inference
-#Use "python main.py -h" for more details
+#Use "python ./scripts/infer.py -h" for more details
 ```
 
 * Python
@@ -156,19 +160,25 @@ Here are some examples of the input:
 **See [this](https://github.com/Lyu6PosHao/ProLLaMA/blob/main/superfamilies.txt) on all the optional superfamilies.**
 
 ## 🛠️Qucik Train
-(To Be Done) Quick usage of our training framework.
-
+### Stage 1
+1. Prepare the dataset: put your dataset under **./scripts/pretraining_dataset**. You dataset should be one or several **txt files**. Each line in the txt file should be **one protein sequence** in the format of "Seq=<xxx>". We provided ./scripts/pretraining_dataset/example.txt as an example.
+2. Run ./scripts/run_pt.sh
+### Stage 2
+1. Prepare the dataset: download our instruction_dataset from [HuggingFace](https://huggingface.co/datasets/GreatCaptainNemo/instruction_dataset) and put the train_split under ./scripts/instruction_tuning_dataset. We provided ./scripts/instruction_tuning_dataset/example.json as an example.
+2. Run ./scripts/run_it.sh
+3. If you want to fine-tune our ProLLaMA on your own dataset instead of our instruction_dataset, you should process your data **into the similar format** like our instruction_dataset (or example.json).
+4. It may be better to fine-tune **ProLLaMA_Stage_1** instead of ProLLaMA if your dataset is relatively small and not relevant to superfamily tasks.
 ## ✒️Others
 ### ProLLaMA of Stage 1
 
-ProLLaMA_Stage_1 refers to the model obtained by continual pre-training LLaMA2 on the UniRef50 dataset, as shown in the [pipeline](https://github.com/PKU-YuanGroup/ProLLaMA?tab=readme-ov-file#pipeline). [HuggingFace Link](https://huggingface.co/GreatCaptainNemo/ProLLaMA_Stage_1)
+ProLLaMA_Stage_1 refers to the model obtained by continual pre-training LLaMA2 on the UniRef50 dataset, as shown in the [pipeline](https://github.com/PKU-YuanGroup/ProLLaMA?tab=readme-ov-file#pipeline). [Model Weights](https://huggingface.co/GreatCaptainNemo/ProLLaMA_Stage_1)
 
 You can use ProLLaMA_Stage_1 in the same way as ProLLaMA. For example:
 ```bash
-CUDA_VISIBLE_DEVICES=0 python main.py --model "GreatCaptainNemo/ProLLaMA_Stage_1" --interactive
+CUDA_VISIBLE_DEVICES=0 python ./scripts/infer.py --model "GreatCaptainNemo/ProLLaMA_Stage_1" --interactive
 #You can replace the model_path with your local path
 #Make sure you use only one GPU for inference
-#Use "python main.py -h" for more details
+#Use "python ./scripts/infer.py -h" for more details
 ```
 
 However, ProLLaMA_Stage_1's input format is a little different from ProLLaMA, since the former is only trained on pure protein sequences without nautral language instructions.
@@ -183,6 +193,7 @@ You can perform instruction tuning on ProLLaMA_Stage_1 (or ProLLaMA) with your c
 
 We plan to build a more powerful ProLLaMA_Stage_1.
 ## ✏️Citation
+If you find our repo helpful, please consider citing us.
 ```BibTex
 @article{lv2024prollama,
   title={ProLLaMA: A Protein Large Language Model for Multi-Task Protein Language Processing},
