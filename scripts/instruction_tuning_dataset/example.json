@@ -1,0 +1,12 @@
+[
+    {
+        "instruction":"[Generate by superfamily]",
+        "input":"Seq=<EDAIIWHEFCQIQYSYRMFFSMMVYNGKYPDSNDQEKIVSEDPVHFNEVLMSLMRDLSNEAVFGHSKLMFATGKMKISGTQTIHGLAQCTRDISRDDCSRCLNNVLGDIDACCKSRQ>",
+        "output":"Superfamily=<Gnk2-homologous domain superfamily>"
+    },
+    {
+        "instruction":"[Determine superfamily]",
+        "input":"Superfamily=<Gnk2-homologous domain superfamily>",
+        "output":"Seq=<EDAIIWHEFCQIQYSYRMFFSMMVYNGKYPDSNDQEKIVSEDPVHFNEVLMSLMRDLSNEAVFGHSKLMFATGKMKISGTQTIHGLAQCTRDISRDDCSRCLNNVLGDIDACCKSRQ>"
+    }
+]
