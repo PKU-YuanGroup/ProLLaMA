@@ -9,7 +9,7 @@ lora_trainable="q_proj,v_proj,k_proj,o_proj,gate_proj,down_proj,up_proj"
 modules_to_save="embed_tokens,lm_head"
 lora_dropout=0.05
 
-pretrained_model=GreatCaptainNemo/ProLLaMA_Stage_1 #or your local path
+pretrained_model=meta-llama/Llama-2-7b-hf #or your local path
 dataset_dir=./pretraining_dataset #your dataset path
 data_cache=/remote-home/share/uniref50/cache/
 per_device_train_batch_size=4
