@@ -15,7 +15,7 @@ gradient_accumulation_steps=4
 max_seq_length=256
 output_dir=save_dir/
 deepspeed_config_file=ds_zero2_no_offload.json
-torchrun  --nproc_per_node 8 run_clm_sft_with_peft.py \
+torchrun  --nproc_per_node 8 instruction_tune.py \
     --deepspeed ${deepspeed_config_file} \
     --model_name_or_path ${pretrained_model} \
     --tokenizer_name_or_path ${pretrained_model} \
