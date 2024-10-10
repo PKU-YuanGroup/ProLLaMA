@@ -12,7 +12,7 @@
 
 ## 📣 News
 * [07.17] Update a new version of the paper.
-* [06.27] Release the codes for pretraining (Stage1) and instruction_tuning (Stage2). See [here](https://github.com/PKU-YuanGroup/ProLLaMA?tab=readme-ov-file#%EF%B8%8Fqucik-train).
+* [06.27] Release the codes for pretraining (Stage1) and instruction_tuning (Stage2). See [here](https://github.com/PKU-YuanGroup/ProLLaMA?tab=readme-ov-file#%EF%B8%8Fquick-train).
 * [06.08] Opensource the instruction dataset on [HuggingFace](https://huggingface.co/datasets/GreatCaptainNemo/instruction_dataset)
 * [04.25] Upload ProLLaMA_Stage_1 to [HuggingFace](https://huggingface.co/GreatCaptainNemo/ProLLaMA_Stage_1). More information is [here](https://github.com/PKU-YuanGroup/ProLLaMA?tab=readme-ov-file#%EF%B8%8Fothers).
 * [04.10] Add a script (in /scripts/mutation.py) to meature mutation effects.
@@ -160,7 +160,7 @@ Here are some examples of the input:
 ```
 **See [this](https://github.com/Lyu6PosHao/ProLLaMA/blob/main/superfamilies.txt) on all the optional superfamilies.**
 
-## 🛠️Qucik Train
+## 🛠️Quick Train
 ### Stage 1
 1. Prepare the dataset: put your dataset under **./scripts/pretraining_dataset**. You dataset should be one or several **txt files**. Each line in the txt file should be **one protein sequence** in the format of "Seq=<xxx>". We provided ./scripts/pretraining_dataset/example.txt as an example.
 2. Run ./scripts/run_pt.sh
