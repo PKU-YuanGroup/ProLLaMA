@@ -11,12 +11,13 @@
 </h5>
 
 ## 📣 News
-* [07.17] Update a new version of the paper.
-* [06.27] Release the codes for pretraining (Stage1) and instruction_tuning (Stage2). See [here](https://github.com/PKU-YuanGroup/ProLLaMA?tab=readme-ov-file#%EF%B8%8Fquick-train).
-* [06.08] Opensource the instruction dataset on [HuggingFace](https://huggingface.co/datasets/GreatCaptainNemo/instruction_dataset)
-* [04.25] Upload ProLLaMA_Stage_1 to [HuggingFace](https://huggingface.co/GreatCaptainNemo/ProLLaMA_Stage_1). More information is [here](https://github.com/PKU-YuanGroup/ProLLaMA?tab=readme-ov-file#%EF%B8%8Fothers).
-* [04.10] Add a script (in /scripts/mutation.py) to meature mutation effects.
-* [02.29] Update the /scripts/infer.py to fix bugs.
+* [2025/01/01] We propose [HME](https://github.com/Lyu6PosHao/HME), a multimodal multitask Chemical LLMs.
+* [2024/07/17] Update a new version of the paper.
+* [2024/06/27] Release the codes for pretraining (Stage1) and instruction_tuning (Stage2). See [here](https://github.com/PKU-YuanGroup/ProLLaMA?tab=readme-ov-file#%EF%B8%8Fquick-train).
+* [2024/06/08] Opensource the instruction dataset on [HuggingFace](https://huggingface.co/datasets/GreatCaptainNemo/instruction_dataset)
+* [2024/04/25] Upload ProLLaMA_Stage_1 to [HuggingFace](https://huggingface.co/GreatCaptainNemo/ProLLaMA_Stage_1). More information is [here](https://github.com/PKU-YuanGroup/ProLLaMA?tab=readme-ov-file#%EF%B8%8Fothers).
+* [2024/04/10] Add a script (in /scripts/mutation.py) to meature mutation effects.
+* [2024/02.29] Update the /scripts/infer.py to fix bugs.
 
 
 
@@ -30,14 +31,12 @@ Experiments show that ProLLaMA achieves state-of-the-art results in the uncondit
 
 <p align="center"><img src="img/intro.png" title="" height="500"></p>
 
-<details open><summary> I also have other AI for Science projects that may interest you. </summary><p>
+<details open><summary> **I also have other AI for Science projects that may interest you.** </summary><p>
 <!--  may -->
 
-> [**TaxDiff: Taxonomic-Guided Diffusion Model for Protein Sequence Generation**](https://github.com/PKU-YuanGroup/TaxDiff) <br>
->Zongying Lin, Li Hao, Liuzhenghao Lv, Bin Lin, Junwu Zhang, Calvin Yu-Chian Chen, Li Yuan, Yonghong Tian<br>
-[![github](https://img.shields.io/badge/-Github-black?logo=github)](https://github.com/PKU-YuanGroup/TaxDiff)  
-[![arXiv](https://img.shields.io/badge/Arxiv-2401.15947-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2402.17156) <br>
-
+> [TaxDiff: Taxonomic-Guided Diffusion Model for Protein Sequence Generation](https://arxiv.org/abs/2402.17156) [![github](https://img.shields.io/badge/-Github-black?logo=github)](https://github.com/PKU-YuanGroup/TaxDiff) <br><br>
+> [Navigating Chemical-Linguistic Sharing Space with Heterogeneous Molecular Encoding](https://arxiv.org/abs/2412.20888) [![github](https://img.shields.io/badge/-Github-black?logo=github)](https://github.com/Lyu6PosHao/HME) <br><br>
+> DM-Assembler: Leveraging Domain Motif Assembler for Multi-objective, Multi-domain and Explainable Molecular Design [![github](https://img.shields.io/badge/-Github-black?logo=github)](https://github.com/cziun/DM-Assembler) <br><br>
 
 </p ></details>
 
