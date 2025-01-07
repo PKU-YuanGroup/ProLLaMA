@@ -49,5 +49,7 @@ torchrun  --nproc_per_node 8 instruction_tune.py \
     --save_safetensors False \
     --ddp_find_unused_parameters False \
     --gradient_checkpointing \
+    --merge_when_finished True\
+    #When the above parameter is True, the model will be auto-merged after training (the LoRA adapters will be merged into the original LLM). The merged model will be put into {output_dir}_merged
     #--resume_from_checkpoint path_to_checkpoint \
     #--use_flash_attention_2 \
