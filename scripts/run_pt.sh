@@ -10,8 +10,8 @@ modules_to_save="embed_tokens,lm_head"
 lora_dropout=0.05
 
 pretrained_model=meta-llama/Llama-2-7b-hf #or your local path
-dataset_dir=./pretraining_dataset #your dataset path
-data_cache=/remote-home/share/uniref50/cache/
+dataset_dir=./pretraining_dataset #your dataset path (UniRef50 dataset as in the paper)
+data_cache=path/to/uniref50/cache/
 per_device_train_batch_size=4
 gradient_accumulation_steps=8
 block_size=2048
@@ -55,3 +55,5 @@ torchrun --nproc_per_node 8 --rdzv-endpoint=localhost:29500 pretrain.py \
     --ddp_find_unused_parameters False \
     --flash_attn \
     --modules_to_save ${modules_to_save} \
+    --merge_when_finished True\
+    #When the above parameter is True, the model will be auto-merged after training (the LoRA adapters will be merged into the original LLM). The merged model will be put into {output_dir}_merged

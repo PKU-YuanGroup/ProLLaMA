@@ -57,29 +57,29 @@ from transformers.utils.versions import require_version
 
 from sklearn.metrics import accuracy_score
 from peft import LoraConfig, TaskType, get_peft_model, PeftModel, get_peft_model_state_dict
-from peft.tuners.lora import LoraLayer
+# from peft.tuners.lora import LoraLayer
 from transformers.trainer_utils import PREFIX_CHECKPOINT_DIR
 
 
-class SavePeftModelCallback(transformers.TrainerCallback):
-    def save_model(self, args, state, kwargs):
-        if state.best_model_checkpoint is not None:
-            checkpoint_folder = os.path.join(state.best_model_checkpoint, "pt_lora_model")
-        else:
-            checkpoint_folder = os.path.join(args.output_dir, f"{PREFIX_CHECKPOINT_DIR}-{state.global_step}")
+# class SavePeftModelCallback(transformers.TrainerCallback):
+#     def save_model(self, args, state, kwargs):
+#         if state.best_model_checkpoint is not None:
+#             checkpoint_folder = os.path.join(state.best_model_checkpoint, "pt_lora_model")
+#         else:
+#             checkpoint_folder = os.path.join(args.output_dir, f"{PREFIX_CHECKPOINT_DIR}-{state.global_step}")
 
-        peft_model_path = os.path.join(checkpoint_folder, "pt_lora_model")
-        kwargs["model"].save_pretrained(peft_model_path)
-        kwargs["tokenizer"].save_pretrained(peft_model_path)
+#         peft_model_path = os.path.join(checkpoint_folder, "pt_lora_model")
+#         kwargs["model"].save_pretrained(peft_model_path)
+#         kwargs["tokenizer"].save_pretrained(peft_model_path)
 
-    def on_save(self, args, state, control, **kwargs):
-        self.save_model(args, state, kwargs)
-        return control
+#     def on_save(self, args, state, control, **kwargs):
+#         self.save_model(args, state, kwargs)
+#         return control
 
-    def on_train_end(self, args, state, control, **kwargs):
-        peft_model_path = os.path.join(args.output_dir, "pt_lora_model")
-        kwargs["model"].save_pretrained(peft_model_path)
-        kwargs["tokenizer"].save_pretrained(peft_model_path)
+#     def on_train_end(self, args, state, control, **kwargs):
+#         peft_model_path = os.path.join(args.output_dir, "pt_lora_model")
+#         kwargs["model"].save_pretrained(peft_model_path)
+#         kwargs["tokenizer"].save_pretrained(peft_model_path)
 
 
 def prepare_model_for_kbit_training(model, use_gradient_checkpointing=True):
@@ -201,6 +201,7 @@ class ModelArguments:
     """
     Arguments pertaining to which model/config/tokenizer we are going to fine-tune, or train from scratch.
     """
+    merge_when_finished : Optional[bool] = field(default=True,metadata={"help":"Merge the lora adapters into the original model when training finished."})
 
     model_name_or_path: Optional[str] = field(
         default=None,
@@ -688,15 +689,24 @@ def main():
         train_result = trainer.train(resume_from_checkpoint=checkpoint)
 
         metrics = train_result.metrics
-
-        max_train_samples = (
-            data_args.max_train_samples if data_args.max_train_samples is not None else len(train_dataset)
-        )
-        metrics["train_samples"] = min(max_train_samples, len(train_dataset))
-
+        metrics["train_samples"] = len(train_dataset)
         trainer.log_metrics("train", metrics)
         trainer.save_metrics("train", metrics)
         trainer.save_state()
+        trainer.save_model(output_dir=training_args.output_dir)
+
+        #save the merged model and tokenizer if lora used
+        if model_args.merge_when_finished:
+            if os.environ.get("LOCAL_RANK") is None or os.environ.get("LOCAL_RANK")=='0':
+                if training_args.output_dir.endswith('/'):
+                    merged_model_path=training_args.output_dir[:-1]+'_merged'
+                else:
+                    merged_model_path=training_args.output_dir+'_merged'
+                merged_model=model.merge_and_unload()
+                os.makedirs(merged_model_path,exist_ok=True)
+                merged_model.save_pretrained(merged_model_path)
+                tokenizer.save_pretrained(merged_model_path)
+                logging.info(f"Saved the merged model to {merged_model_path}")
 
     # Evaluation
     if training_args.do_eval:
