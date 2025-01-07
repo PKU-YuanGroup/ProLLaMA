@@ -11,6 +11,7 @@
 </h5>
 
 ## 📣 News
+* [2025/01/07] Update some training codes for easier usage. Details in Logs.
 * [2025/01/01] We propose [HME](https://github.com/Lyu6PosHao/HME), a multimodal multitask Chemical LLMs.
 * [2024/07/17] Update a new version of the paper.
 * [2024/06/27] Release the codes for pretraining (Stage1) and instruction_tuning (Stage2). See [here](https://github.com/PKU-YuanGroup/ProLLaMA?tab=readme-ov-file#%EF%B8%8Fquick-train).
@@ -192,6 +193,12 @@ Seq=<MAPGGMPRE
 You can perform instruction tuning on ProLLaMA_Stage_1 (or ProLLaMA) with your custom datasets, in order to make the model capable of your insterested PLP tasks.
 
 We plan to build a more powerful ProLLaMA_Stage_1.
+
+## Logs
+[2025-01-07]
+- The peft codes in the **src/peft** is not used. The directory has been renamed to **src/peft(deprecated)**.
+- The checkpoints during traning will be saved in ${output_dir}. And when **"merge_when_finished"** is True, the LoRA adapters will be merged into the base model, and the merged model will be saved in  ${output_dir}_merged. Then you can easily use transformers.AutoModelForCausalLM.from_pretrained() to load the merged model directly.
+
 ## ✏️Citation
 If you find our repo helpful, please consider citing us.
 ```BibTex
