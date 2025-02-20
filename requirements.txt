@@ -4,3 +4,4 @@ sentencepiece
 peft
 deepspeed
 accelerate
+datasets
