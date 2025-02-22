@@ -449,10 +449,12 @@ def main():
             model.base_model.get_input_embeddings().register_forward_hook(make_inputs_require_grad)
     model.print_trainable_parameters()
     logger.info(f"model.modules_to_save: {model.modules_to_save}")
-    old_state_dict = model.state_dict
-    model.state_dict = (
-        lambda self, *_, **__: get_peft_model_state_dict(self, old_state_dict())
-    ).__get__(model, type(model))
+
+    #The following code will cause the adapter_model.bin saved during training to be empty, so it is commented out.
+    # old_state_dict = model.state_dict
+    # model.state_dict = (
+    #     lambda self, *_, **__: get_peft_model_state_dict(self, old_state_dict())
+    # ).__get__(model, type(model))
 
     # Initialize our Trainer
     trainer = Trainer(
