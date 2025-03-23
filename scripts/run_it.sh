@@ -8,11 +8,11 @@ lora_alpha=128
 lora_trainable="q_proj,v_proj,k_proj,o_proj,gate_proj,down_proj,up_proj"
 lora_dropout=0.05
 
-pretrained_model=GreatCaptainNemo/ProLLaMA_Stage_1 #or your local path
-dataset_dir=./instruction_tuning_dataset #your dataset path
+pretrained_model=GreatCaptainNemo/ProLLaMA_Stage_1 # or your local path
 
-# Optionally specify train and validation files (JSON format)
-# Leave empty if not used
+# Optionally specify dataset_dir, train_file and validation_file (JSON format)
+# If train_file is defined, dataset_dir will be ignored.
+dataset_dir=./instruction_tuning_dataset
 train_file=./train.json
 validation_file=./validation.json
 
@@ -22,25 +22,28 @@ max_seq_length=256
 output_dir=save_dir/
 deepspeed_config_file=ds_zero2_no_offload.json
 
-# Build additional arguments for optional files
+# Build additional arguments for optional files and dataset directory
 extra_args=""
+
+# If train_file is defined, it takes precedence over dataset_dir
 if [ -n "${train_file}" ]; then
     extra_args="${extra_args} --train_file ${train_file}"
-fi
-if [ -n "${validation_file}" ]; then
-    extra_args="${extra_args} --validation_file ${validation_file}"
+elif [ -n "${dataset_dir}" ]; then
+    extra_args="${extra_args} --dataset_dir ${dataset_dir}"
 fi
 
-torchrun  --nproc_per_node 8 instruction_tune.py \
+if [ -n "${validation_file}" ]; then
+    extra_args="${extra_args} --validation_file ${validation_file}"
+    extra_args="${extra_args} --do_eval --evaluation_strategy epoch"
+fi
+
+torchrun --nproc_per_node 8 instruction_tune.py \
     --deepspeed ${deepspeed_config_file} \
     --model_name_or_path ${pretrained_model} \
     --tokenizer_name_or_path ${pretrained_model} \
-    --dataset_dir ${dataset_dir} \
     ${extra_args} \
     --per_device_train_batch_size ${per_device_train_batch_size} \
     --do_train \
-    --do_eval \
-    --evaluation_strategy epoch \
     --seed 42 \
     --bf16 \
     --num_train_epochs 2 \
@@ -68,7 +71,8 @@ torchrun  --nproc_per_node 8 instruction_tune.py \
     --save_safetensors False \
     --ddp_find_unused_parameters False \
     --gradient_checkpointing \
-    --merge_when_finished True \
-    #When the above parameter is True, the model will be auto-merged after training (the LoRA adapters will be merged into the original LLM). The merged model will be put into {output_dir}_merged
+    --merge_when_finished True
+    # When the above parameter is True, the model will be auto-merged after training (the LoRA adapters will be merged into the original LLM).
+    # The merged model will be put into {output_dir}_merged
     #--resume_from_checkpoint path_to_checkpoint \
-    #--use_flash_attention_2 \
+    #--use_flash_attention_2
