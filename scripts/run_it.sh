@@ -10,18 +10,37 @@ lora_dropout=0.05
 
 pretrained_model=GreatCaptainNemo/ProLLaMA_Stage_1 #or your local path
 dataset_dir=./instruction_tuning_dataset #your dataset path
+
+# Optionally specify train and validation files (JSON format)
+# Leave empty if not used
+train_file=./train.json
+validation_file=./validation.json
+
 per_device_train_batch_size=144
 gradient_accumulation_steps=4
 max_seq_length=256
 output_dir=save_dir/
 deepspeed_config_file=ds_zero2_no_offload.json
+
+# Build additional arguments for optional files
+extra_args=""
+if [ -n "${train_file}" ]; then
+    extra_args="${extra_args} --train_file ${train_file}"
+fi
+if [ -n "${validation_file}" ]; then
+    extra_args="${extra_args} --validation_file ${validation_file}"
+fi
+
 torchrun  --nproc_per_node 8 instruction_tune.py \
     --deepspeed ${deepspeed_config_file} \
     --model_name_or_path ${pretrained_model} \
     --tokenizer_name_or_path ${pretrained_model} \
     --dataset_dir ${dataset_dir} \
+    ${extra_args} \
     --per_device_train_batch_size ${per_device_train_batch_size} \
     --do_train \
+    --do_eval \
+    --evaluation_strategy epoch \
     --seed 42 \
     --bf16 \
     --num_train_epochs 2 \
@@ -49,7 +68,7 @@ torchrun  --nproc_per_node 8 instruction_tune.py \
     --save_safetensors False \
     --ddp_find_unused_parameters False \
     --gradient_checkpointing \
-    --merge_when_finished True\
+    --merge_when_finished True \
     #When the above parameter is True, the model will be auto-merged after training (the LoRA adapters will be merged into the original LLM). The merged model will be put into {output_dir}_merged
     #--resume_from_checkpoint path_to_checkpoint \
     #--use_flash_attention_2 \

@@ -206,10 +206,10 @@ class DataTrainingArguments:
         default=None, metadata={"help": "The name of the dataset to use (via the datasets library)."}
     )
 
-    train_file: Optional[str] = field(default=None, metadata={"help": "The input training data file (a text file)."})
+    train_file: Optional[str] = field(default=None, metadata={"help": "The input training data file (a JSON file)."})
     validation_file: Optional[str] = field(
         default=None,
-        metadata={"help": "An optional input evaluation data file to evaluate the perplexity on (a text file)."},
+        metadata={"help": "An optional input evaluation data file to evaluate the perplexity on (a JSON file)."},
     )
 
     overwrite_cache: bool = field(
@@ -347,20 +347,46 @@ def main():
     train_dataset = None
 
     if training_args.do_train:
-        #load each json file in the dataset_dir as a training dataset
-        with training_args.main_process_first(desc="loading and tokenization"):
-            path = Path(data_args.dataset_dir)
-            files = [os.path.join(path,file.name) for file in path.glob("*.json")]
-            logger.info(f"Training files: {' '.join(files)}")
+        if data_args.train_file is not None:
+            # Load training dataset from JSON file
+            logger.info(f"Loading training data from file: {data_args.train_file}")
             train_dataset = tokenize_instruction_dataset(
-                data_path=files,
+                data_path=[data_args.train_file],
                 tokenizer=tokenizer,
                 max_seq_length=data_args.max_seq_length,
-                data_cache_dir = None,
-                preprocessing_num_workers = data_args.preprocessing_num_workers)
+                data_cache_dir=data_args.data_cache_dir,
+                preprocessing_num_workers=data_args.preprocessing_num_workers)
+        elif data_args.dataset_dir is not None:
+            # Load each json file in the dataset_dir as a training dataset
+            with training_args.main_process_first(desc="loading and tokenization"):
+                path = Path(data_args.dataset_dir)
+                files = [os.path.join(path,file.name) for file in path.glob("*.json")]
+                logger.info(f"Training files: {' '.join(files)}")
+                train_dataset = tokenize_instruction_dataset(
+                    data_path=files,
+                    tokenizer=tokenizer,
+                    max_seq_length=data_args.max_seq_length,
+                    data_cache_dir = None,
+                    preprocessing_num_workers = data_args.preprocessing_num_workers)
+        else:
+            raise ValueError("No training data provided. Please specify either dataset_dir or train_file")
         logger.info(f"Num train_samples  {len(train_dataset)}")
         logger.info("Training example:")
         logger.info(tokenizer.decode(train_dataset[0]['input_ids']))
+    
+    # Load evaluation data if do_eval is set
+    if training_args.do_eval:
+        if data_args.validation_file is not None:
+            # Load validation dataset from JSON file
+            logger.info(f"Loading validation data from file: {data_args.validation_file}")
+            eval_dataset = tokenize_instruction_dataset(
+                data_path=[data_args.validation_file],
+                tokenizer=tokenizer,
+                max_seq_length=data_args.max_seq_length,
+                data_cache_dir=data_args.data_cache_dir,
+                preprocessing_num_workers=data_args.preprocessing_num_workers)
+        else:
+            logger.warning("do_eval is True but no validation_file is provided. Skipping evaluation.")
 
     torch_dtype = (
         model_args.torch_dtype
@@ -461,6 +487,7 @@ def main():
         model=model,
         args=training_args,
         train_dataset=train_dataset,
+        eval_dataset=eval_dataset,
         tokenizer=tokenizer,
         data_collator=data_collator,
     )
