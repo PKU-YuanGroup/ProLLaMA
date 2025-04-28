@@ -11,6 +11,7 @@
 </h5>
 
 ## 📣 News
+* [2025/04] Accepted by *IEEE Transactions on Artificial Intelligence*. A new version of paper and codes will be released soon.
 * [2025/01/07] Update some training codes for easier usage. Details in [Logs](https://github.com/PKU-YuanGroup/ProLLaMA?tab=readme-ov-file#logs).
 * [2025/01/01] We propose [HME](https://github.com/Lyu6PosHao/HME), a multimodal multitask Chemical LLMs.
 * [2024/07/17] Update a new version of the paper.
