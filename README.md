@@ -27,7 +27,7 @@
 ## 🗝️ Abstract
 Recent advances in Protein Language Models (PLMs) have transformed protein engineering, yet unlike their counterparts in Natural Language Processing (NLP), current PLMs exhibit a fundamental limitation: they excel in either Protein Language Understanding (PLU) or Protein Language Generation (PLG), but rarely both. This fragmentation hinders progress in protein engineering. To bridge this gap, **we introduce ProLLaMA, a multitask protein language model enhanced by the Evolutionary Protein Generation Framework (EPGF)**. We construct** a comprehensive instruction dataset containing approximately 13 million samples with over 11,000 superfamily annotations** to facilitate better modeling of sequence-function landscapes. We leverage a two-stage training approach to develop **ProLLaMA, a multitask LLM with protein domain expertise**. **Our EPGF addresses the mismatch between statistic language modeling and biological constraints through three innovations**: a multi-dimensional interpretable scorer, hierarchical efficient decoding, and a probabilistic-biophysical joint selection mechanism. Extensive experiments demonstrate that ProLLaMA excels in both unconditional and controllable protein generation tasks, achieving superior structural quality metrics compared to existing PLMs. Additionally, ProLLaMA demonstrates strong understanding capabilities with a 67.1% exact match rate in superfamily prediction. EPGF significantly enhances the biological viability of generated sequences, as evidenced by improved biophysical scores (+4.3%) and structural metrics (+14.5%).
 
-<p align="center"><img src="img/intro.png" title="" height="500"></p>
+<p align="center"><img src="img/introduction.png" title="" ></p>
 
 <details open><summary> **I also have other AI for Science projects that may interest you.** </summary><p>
 <!--  may -->
@@ -40,8 +40,10 @@ Recent advances in Protein Language Models (PLMs) have transformed protein engin
 
 ## 💡Highlights
 ### Powerful model
-* Our ProLLaMA is the first model to our knowledge capable of simultaneously handling multiple PLP tasks.
-* **including generating proteins with specified functions based on the user's intent.**
+* Our ProLLaMA is the first model to our knowledge capable of simultaneously handling multiple PLP tasks, including generating proteins with specified functions based on the user's intent.
+
+### Large-scale Dataset
+* We construct a comprehensive instruction dataset containing approximately 13 million samples with superfamily annotations.
 
 ### General training framework
 * We propose a training framework with scalability and efficiency that enables any general LLM to be trained as a proficient model for multiple tasks in Protein Language Processing.
@@ -50,20 +52,16 @@ Recent advances in Protein Language Models (PLMs) have transformed protein engin
 * EPGF is a test-time computation framwork, which ensures that generated protein sequences are not only statistically coherent but also biologically viable, addressing a critical limitation in current PLMs.
 
 ## 😮Main Results
-* Protein sequence generation
-  <p align="center"><img src="img/r4.jpg" title=""></p>
-  <p align="center"><img src="img/r1.jpg" title=""></p>
+* The Overview of Evolutionary Protein Generation Framework (EPGF) [code](https://github.com/PKU-YuanGroup/ProLLaMA/blob/main/scripts/EPGF.py)
+  <p align="center"><img src="img/epgf.png" title="" ></p>
   
-* Controllable protein sequence generation (controlled by the given [superfamily descriptions](https://github.com/Lyu6PosHao/ProLLaMA/blob/main/superfamilies.txt))
+* ProLLaMA generates better protein sequences with EPGF. "Natural" denotes natural proteins.
+  <p align="center"><img src="img/result1.png" title=""></p>
   
-  1 cases for each superfamily: ProLLaMA is capable of generating desired proteins (Blue) with functions and structures similar to natural proteins (Yellow).
-  <p align="center"><img src="img/r5.png" title=""></p>
-  100 cases for each superfamily:
-  <p align="center"><img src="img/r2.jpg" title=""></p>
-  
-* Protein property prediction
-  
-  <p align="center"><img src="img/r3.jpg" title="" ></p>
+* The performance of ProLLaMA in Conditional Protein Generation. (controlled by the given [superfamily descriptions](https://github.com/Lyu6PosHao/ProLLaMA/blob/main/superfamilies.txt))
+  <p align="center"><img src="img/result2.png" title=""></p>
+
+* Other results in the paper (protein superfamily prediction, protein solubility prediction, ...)
 
 ## 🚀Pipeline
 The training framework we propose is as follows:
