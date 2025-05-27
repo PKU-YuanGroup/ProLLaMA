@@ -2,7 +2,7 @@
 <h2 align="center"> <a href="hhttps://arxiv.org/abs/2402.16445">ProLLaMA: A Protein Language Model for Multi-Task Protein Language Processing</a></h2>
 <h5 align="center">
     
-[![arXiv](https://img.shields.io/badge/Arxiv-2402.16445-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2402.16445)
+[![Paper](https://img.shields.io/badge/Arxiv-2402.16445-b31b1b.svg?logo=arXiv)](https://ieeexplore.ieee.org/abstract/document/10979347)
 [![Model1](https://img.shields.io/badge/🤗-Model1_Download-blue.svg)](https://huggingface.co/GreatCaptainNemo/ProLLaMA_Stage_1)
 [![Model2](https://img.shields.io/badge/🤗-Model2_Download-blue.svg)](https://huggingface.co/GreatCaptainNemo/ProLLaMA)
 [![Dataset](https://img.shields.io/badge/🤗-Dataset_Download-blue.svg)](https://huggingface.co/datasets/GreatCaptainNemo/instruction_dataset)
