@@ -197,10 +197,11 @@ We plan to build a more powerful ProLLaMA_Stage_1.
 ## ✏️Citation
 If you find our repo helpful, please consider citing us.
 ```BibTex
-@article{lv2024prollama,
-  title={ProLLaMA: A Protein Large Language Model for Multi-Task Protein Language Processing},
+@article{lv2025prollama,
+  title={Prollama: A protein large language model for multi-task protein language processing},
   author={Lv, Liuzhenghao and Lin, Zongying and Li, Hao and Liu, Yuyang and Cui, Jiaxi and Chen, Calvin Yu-Chian and Yuan, Li and Tian, Yonghong},
-  journal={arXiv preprint arXiv:2402.16445},
-  year={2024}
+  journal={IEEE Transactions on Artificial Intelligence},
+  year={2025},
+  publisher={IEEE}
 }
 ```
